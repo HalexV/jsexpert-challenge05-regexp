@@ -1,3 +1,7 @@
 {
-  "src/**/*.js": ["eslint --fix", "prettier --write --ignore-unknown"]
+  "src/**/*.js": [
+    "eslint --fix",
+    "prettier --write --ignore-unknown",
+    "npm run test"
+  ]
 }
