@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "This is the official repository of the 5th EW.IT code challenge. Which is a Facade/Fluent API based application to extract useful information from governmental csv files using regexps.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node src/index.js",
     "test": "npx mocha --parallel test/*.test.js",
@@ -26,5 +27,8 @@
   },
   "dependencies": {
     "safe-regex": "^2.1.1"
+  },
+  "engines": {
+    "node": "14.17.6"
   }
 }
