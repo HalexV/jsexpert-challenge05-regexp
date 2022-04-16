@@ -3,5 +3,10 @@
     "eslint --fix",
     "prettier --write --ignore-unknown",
     "npm run test"
+  ],
+  "test/**/*.test.js": [
+    "eslint --fix",
+    "prettier --write --ignore-unknown",
+    "npm run test"
   ]
 }
