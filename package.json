@@ -9,7 +9,7 @@
     "start": "node src/index.js",
     "test": "npx mocha --parallel test/*.test.js",
     "test:dev": "npx mocha -w test/*.test.js",
-    "test:cov": "npx nyc npx mocha --parallel test/*.test.js",
+    "test:cov": "npx c8 npx mocha --parallel test/*.test.js",
     "prepare": "husky install"
   },
   "keywords": [
@@ -22,6 +22,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "c8": "^7.11.2",
     "chai": "^4.2.0",
     "eslint": "^8.13.0",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -30,8 +31,7 @@
     "git-commit-msg-linter": "^4.1.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.8",
-    "mocha": "^8.2.1",
-    "nyc": "^15.1.0",
+    "mocha": "^8.4.0",
     "prettier": "2.6.2"
   },
   "dependencies": {
