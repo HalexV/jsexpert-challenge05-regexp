@@ -4,6 +4,8 @@ import { expect } from 'chai';
 
 import TextProcessorFluentAPI from '../src/textProcessorFluentAPI.js';
 
+import { mockCsvContent, mockCsvContentWithoutHeaders } from './mock/valid.js';
+
 /*
   Passos:
   1) ler o arquivo CSV
@@ -16,6 +18,16 @@ import TextProcessorFluentAPI from '../src/textProcessorFluentAPI.js';
 */
 
 describe('textProcessorFluentAPI Suite Test', () => {
+  describe('extractHeadersFromContent', () => {
+    it('should extract the headers from the content', () => {
+      const sut = new TextProcessorFluentAPI(mockCsvContent);
+
+      const result = sut.extractHeadersFromContent().build();
+
+      expect(result).to.be.deep.equal(mockCsvContentWithoutHeaders);
+    });
+  });
+
   describe('build', () => {
     it('should return the content', () => {
       const mockContent = 'any';
