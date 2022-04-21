@@ -2,8 +2,21 @@
 export default class TextProcessorFluentAPI {
   #content;
 
+  #headers;
+
   constructor(content) {
     this.#content = content;
+  }
+
+  extractHeadersFromContent() {
+    const extractHeaderRegex = /(?<=indexadoresnorma;)\n/;
+
+    [this.#headers, this.#content] = this.#content.split(extractHeaderRegex);
+
+    this.#headers = this.#headers.split(';');
+    this.#headers.pop();
+
+    return this;
   }
 
   build() {
