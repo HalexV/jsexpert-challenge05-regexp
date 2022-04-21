@@ -8,7 +8,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "npx mocha --parallel test/*.test.js",
-    "test:dev": "npx mocha -w test/*.test.js",
+    "test:dev": "npx mocha -w --parallel test/*.test.js",
     "test:cov": "npx c8 npx mocha --parallel test/*.test.js",
     "prepare": "husky install"
   },
