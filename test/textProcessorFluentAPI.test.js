@@ -4,17 +4,21 @@ import { expect } from 'chai';
 
 import TextProcessorFluentAPI from '../src/textProcessorFluentAPI.js';
 
-import { mockCsvContent, mockCsvContentWithoutHeaders } from './mock/valid.js';
+import {
+  mockCsvContent,
+  mockCsvContentWithoutHeaders,
+  mockCsvContentSplitedProjects,
+} from './mock/valid.js';
 
 /*
   Passos:
-  1) ler o arquivo CSV
-  2) O csv é passado para o textProcessorFluentAPI
-  3) Separar os headers do content
-  4) Separar os contents por linhas projeto
-  5) Transformar cada linha em um raw object
-  6) Passar cada raw object para classe Project e criar uma lista de projects
-  7) Retornar os projects
+  1) [x] ler o arquivo CSV
+  2) [] O csv é passado para o textProcessorFluentAPI
+  3) [x] Separar os headers do content
+  4) [] Separar os contents por linhas de projeto
+  5) [] Transformar cada linha em um raw object
+  6) [] Passar cada raw object para classe Project e criar uma lista de projects
+  7) [] Retornar os projects
 */
 
 describe('textProcessorFluentAPI Suite Test', () => {
@@ -25,6 +29,16 @@ describe('textProcessorFluentAPI Suite Test', () => {
       const result = sut.extractHeadersFromContent().build();
 
       expect(result).to.be.deep.equal(mockCsvContentWithoutHeaders);
+    });
+  });
+
+  describe('splitContent', () => {
+    it('should split the content by projects', () => {
+      const sut = new TextProcessorFluentAPI(mockCsvContentWithoutHeaders);
+
+      const result = sut.splitContent().build();
+
+      expect(result).to.be.deep.equal(mockCsvContentSplitedProjects);
     });
   });
 
