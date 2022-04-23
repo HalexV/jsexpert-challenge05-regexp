@@ -19,6 +19,12 @@ export default class TextProcessorFluentAPI {
     return this;
   }
 
+  splitContent() {
+    this.#content = this.#content.split('\n');
+
+    return this;
+  }
+
   build() {
     return this.#content;
   }
