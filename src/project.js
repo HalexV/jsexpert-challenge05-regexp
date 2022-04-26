@@ -24,6 +24,7 @@ export default class Project {
     }
 
     this.url = link;
-    this.indexadoresnorma = indexadoresnorma;
+
+    if (indexadoresnorma === 'no data') this.indexadores = [];
   }
 }
