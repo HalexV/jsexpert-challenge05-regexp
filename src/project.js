@@ -26,5 +26,10 @@ export default class Project {
     this.url = link;
 
     if (indexadoresnorma === 'no data') this.indexadores = [];
+    else {
+      this.indexadores = indexadoresnorma
+        .split(',')
+        .map(indexadoresnormaString => indexadoresnormaString.trim());
+    }
   }
 }
