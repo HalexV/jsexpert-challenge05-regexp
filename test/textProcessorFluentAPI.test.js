@@ -19,8 +19,8 @@ import {
   3) [x] Separar os headers do content
   4) [x] Separar os contents por linhas de projeto
   5) [x] Transformar cada linha em um raw object
-  6) [] Passar cada raw object para classe Project e criar uma lista de projects
-  7) [] Retornar os projects
+  6) [x] Passar cada raw object para classe Project e criar uma lista de projects
+  7) [x] Retornar os projects
 */
 
 describe('textProcessorFluentAPI Suite Test', () => {
