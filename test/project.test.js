@@ -27,4 +27,42 @@ describe('Project class suite test', () => {
     expect(result.numero).to.be.deep.equal(expected.numero);
     expect(result.ano).to.be.deep.equal(expected.ano);
   });
+
+  it('should return id field from link field', () => {
+    const mockRawObject = {
+      titulo: 'Projeto de lei 584/2016',
+      link: 'http://www.al.sp.gov.br/propositura?id=1322563',
+      autor: 'Jorge Wilson Xerife do Consumidor',
+      etapa: 'PAUTA',
+      ementa:
+        'Dispõe sobre a inclusão de cláusula nos contratos de adesão aos serviços de telefonia fixa, de telefonia móvel e de banda larga móvel, e dá outras providências.',
+      indexadoresnorma:
+        'CONTRATO, OBRIGATORIEDADE, CLÁUSULA, SERVIÇO, TELEFONIA MÓVEL, TELEFONIA FIXA, PRAZO, INCLUSÃO, RESCISÃO CONTRATUAL, LIBERAÇÃO',
+    };
+
+    const expected = '1322563';
+
+    const result = new Project(mockRawObject);
+
+    expect(result.id).to.be.deep.equal(expected);
+  });
+
+  it('should return an empty autores array field when autor field has no data', () => {
+    const mockRawObject = {
+      titulo: 'Projeto de lei 584/2016',
+      link: 'http://www.al.sp.gov.br/propositura?id=1322563',
+      autor: 'no data',
+      etapa: 'PAUTA',
+      ementa:
+        'Dispõe sobre a inclusão de cláusula nos contratos de adesão aos serviços de telefonia fixa, de telefonia móvel e de banda larga móvel, e dá outras providências.',
+      indexadoresnorma:
+        'CONTRATO, OBRIGATORIEDADE, CLÁUSULA, SERVIÇO, TELEFONIA MÓVEL, TELEFONIA FIXA, PRAZO, INCLUSÃO, RESCISÃO CONTRATUAL, LIBERAÇÃO',
+    };
+
+    const expected = [];
+
+    const result = new Project(mockRawObject);
+
+    expect(result.autores).to.be.deep.equal(expected);
+  });
 });
