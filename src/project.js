@@ -2,7 +2,7 @@
 import { evaluateRegex } from './util.js';
 
 export default class Project {
-  constructor({ titulo, link, autor, etapa, ementa, indexadoresnorma }) {
+  constructor({ titulo, link, autor, indexadoresnorma }) {
     [this.numero, this.ano] = titulo.match(evaluateRegex(/\d+/g));
     [this.id] = link.match(evaluateRegex(/(?<=id=)\d+/));
 
@@ -23,8 +23,7 @@ export default class Project {
       });
     }
 
-    this.etapa = etapa;
-    this.ementa = ementa;
+    this.url = link;
     this.indexadoresnorma = indexadoresnorma;
   }
 }
