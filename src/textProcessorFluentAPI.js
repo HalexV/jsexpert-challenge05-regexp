@@ -1,6 +1,7 @@
 /* eslint-disable prefer-destructuring */
 // TODO: Dê uma olhada no projeto oficial do módulo 06 (Expressões Regulares - RegExp) para implementar este arquivo.
 import { availablePautas, evaluateRegex } from './util.js';
+import Project from './project.js';
 
 export default class TextProcessorFluentAPI {
   #content;
@@ -93,6 +94,12 @@ export default class TextProcessorFluentAPI {
         indexadoresnorma,
       };
     });
+
+    return this;
+  }
+
+  makeProjects() {
+    this.#content = this.#content.map(rawObject => new Project(rawObject));
 
     return this;
   }
