@@ -57,6 +57,66 @@ export const mockCsvContentRawObjects = [
   },
 ];
 
+export const mockProjects = [
+  {
+    id: '1322563',
+    numero: '584',
+    ano: '2016',
+    autores: [
+      {
+        nome: 'Jorge Consumidor',
+      },
+    ],
+    url: 'http://www.al.sp.gov.br/propositura?id=1322563',
+    indexadores: [
+      'CONTRATO',
+      'OBRIGATORIEDADE',
+      'CLÁUSULA',
+      'SERVIÇO',
+      'TELEFONIA MÓVEL',
+      'TELEFONIA FIXA',
+      'PRAZO',
+      'INCLUSÃO',
+      'RESCISÃO CONTRATUAL',
+      'LIBERAÇÃO',
+    ],
+  },
+  {
+    id: '1323286',
+    numero: '580',
+    ano: '2016',
+    autores: [
+      {
+        nome: 'Marcia Lia',
+      },
+    ],
+    url: 'http://www.al.sp.gov.br/propositura?id=1323286',
+    indexadores: [
+      'NORMAS',
+      'REALIZAÇÃO',
+      'CONCURSO PÚBLICO ESTADUAL',
+      'ESTADO DE SÃO PAULO',
+      'ADMINISTRAÇÃO PÚBLICA DIRETA E INDIRETA',
+    ],
+  },
+  {
+    id: '1322832',
+    numero: '545',
+    ano: '2016',
+    autores: [
+      {
+        nome: 'Roberto Morais',
+      },
+      {
+        nome: 'Itamar Borges',
+      },
+    ],
+    url: 'http://www.al.sp.gov.br/propositura?id=1322832',
+
+    indexadores: [],
+  },
+];
+
 /*
 Nota extra + Dica do Wells: O CSV original tem mais "desafios" (leia-se "dificuldades de implementação por má formatação do CSV") que foram
 abstraídos na confecção desse desafio principal (leia-se "salvei vocês de lidar com isso, denada 😂"),
