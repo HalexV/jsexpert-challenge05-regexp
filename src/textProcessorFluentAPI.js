@@ -1,6 +1,6 @@
 /* eslint-disable prefer-destructuring */
 // TODO: Dê uma olhada no projeto oficial do módulo 06 (Expressões Regulares - RegExp) para implementar este arquivo.
-import { availablePautas } from './util.js';
+import { availablePautas, evaluateRegex } from './util.js';
 
 export default class TextProcessorFluentAPI {
   #content;
@@ -13,6 +13,8 @@ export default class TextProcessorFluentAPI {
 
   extractHeadersFromContent() {
     const extractHeaderRegex = /(?<=indexadoresnorma;)\n/;
+
+    evaluateRegex(extractHeaderRegex);
 
     [this.#headers, this.#content] = this.#content.split(extractHeaderRegex);
 
@@ -33,6 +35,8 @@ export default class TextProcessorFluentAPI {
       let index;
       const indexadoresRegex =
         /^[\s]*[A-ZÁÀÃÉÈÍÌÓÒÕÚÙÇ]+[A-ZÁÀÃÉÈÍÌÓÒÕÚÙÇ,\s]*$/;
+
+      evaluateRegex(indexadoresRegex);
 
       const projectArr = projectString.split(';');
 
