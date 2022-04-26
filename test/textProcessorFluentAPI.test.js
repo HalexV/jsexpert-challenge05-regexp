@@ -9,6 +9,7 @@ import {
   mockCsvContentWithoutHeaders,
   mockCsvContentSplitedProjects,
   mockCsvContentRawObjects,
+  mockProjects,
 } from './mock/valid.js';
 
 /*
@@ -17,7 +18,7 @@ import {
   2) [] O csv é passado para o textProcessorFluentAPI
   3) [x] Separar os headers do content
   4) [x] Separar os contents por linhas de projeto
-  5) [] Transformar cada linha em um raw object
+  5) [x] Transformar cada linha em um raw object
   6) [] Passar cada raw object para classe Project e criar uma lista de projects
   7) [] Retornar os projects
 */
@@ -118,6 +119,16 @@ describe('textProcessorFluentAPI Suite Test', () => {
       const result = sut.makeRawObjects().build();
 
       expect(result[0]).to.be.deep.equal(expected);
+    });
+  });
+
+  describe('makeProjects', () => {
+    it('should return an array of projects', () => {
+      const sut = new TextProcessorFluentAPI(mockCsvContentRawObjects);
+
+      const result = sut.makeProjects().build();
+
+      expect(result).to.be.deep.equal(mockProjects);
     });
   });
 
