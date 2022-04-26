@@ -98,4 +98,24 @@ describe('Project class suite test', () => {
 
     expect(result.autores).to.be.deep.equal(expected);
   });
+
+  it('should return url field from link field', () => {
+    const mockRawObject = {
+      titulo: 'Projeto de lei 584/2016',
+      link: 'http://www.al.sp.gov.br/propositura?id=1322563',
+      autor:
+        'Jorge Wilson Xerife do Consumidor, Carlos Eduardo, Maria Francisca Eduarda, Pedro',
+      etapa: 'PAUTA',
+      ementa:
+        'Dispõe sobre a inclusão de cláusula nos contratos de adesão aos serviços de telefonia fixa, de telefonia móvel e de banda larga móvel, e dá outras providências.',
+      indexadoresnorma:
+        'CONTRATO, OBRIGATORIEDADE, CLÁUSULA, SERVIÇO, TELEFONIA MÓVEL, TELEFONIA FIXA, PRAZO, INCLUSÃO, RESCISÃO CONTRATUAL, LIBERAÇÃO',
+    };
+
+    const expected = 'http://www.al.sp.gov.br/propositura?id=1322563';
+
+    const result = new Project(mockRawObject);
+
+    expect(result.url).to.be.deep.equal(expected);
+  });
 });
