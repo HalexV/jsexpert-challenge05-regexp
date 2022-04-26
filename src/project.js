@@ -8,6 +8,19 @@ export default class Project {
 
     if (autor === 'no data') {
       this.autores = [];
+    } else {
+      this.autores = autor.split(',').map(autorString => {
+        const autorNames = autorString.trim().split(' ');
+
+        if (autorNames.length === 1)
+          return {
+            nome: autorNames[0],
+          };
+
+        return {
+          nome: `${autorNames[0]} ${autorNames[autorNames.length - 1]}`,
+        };
+      });
     }
 
     this.etapa = etapa;
