@@ -14,3 +14,15 @@ export const evaluateRegex = exp => {
 
   throw new InvalidRegexError(exp);
 };
+
+export const availablePautas = [
+  'PAUTA',
+  'DISTRIBUIÇÃO',
+  'COMISSÃO',
+  'PRONTO PARA ORDEM DO DIA',
+  'VISTA',
+  'ORDEM DO DIA',
+  'TRANSFORMADO EM NORMA',
+  'ARQUIVADO',
+  'RELATOR ESPECIAL',
+];
