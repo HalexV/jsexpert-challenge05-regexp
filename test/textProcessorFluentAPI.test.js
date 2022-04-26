@@ -97,6 +97,28 @@ describe('textProcessorFluentAPI Suite Test', () => {
 
       expect(result[0]).to.be.deep.equal(expected);
     });
+
+    it('should return a raw object with ementa field with no data', () => {
+      const mockProject = [
+        'Projeto de lei 580/2016;http://www.al.sp.gov.br/propositura?id=1323286;Carlos Silva;PAUTA;NORMAS, REALIZAÇÃO, CONCURSO PÚBLICO ESTADUAL, ESTADO DE SÃO PAULO, ADMINISTRAÇÃO PÚBLICA DIRETA E INDIRETA;',
+      ];
+
+      const expected = {
+        titulo: 'Projeto de lei 580/2016',
+        link: 'http://www.al.sp.gov.br/propositura?id=1323286',
+        autor: 'Carlos Silva',
+        etapa: 'PAUTA',
+        ementa: 'no data',
+        indexadoresnorma:
+          'NORMAS, REALIZAÇÃO, CONCURSO PÚBLICO ESTADUAL, ESTADO DE SÃO PAULO, ADMINISTRAÇÃO PÚBLICA DIRETA E INDIRETA',
+      };
+
+      const sut = new TextProcessorFluentAPI(mockProject);
+
+      const result = sut.makeRawObjects().build();
+
+      expect(result[0]).to.be.deep.equal(expected);
+    });
   });
 
   describe('build', () => {
