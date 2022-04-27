@@ -197,6 +197,26 @@ Versão do Node: 14.17.6
 
 Utiliza ESM
 
+O projeto possui um arquivo .nvmrc que configura a versão do seu node automaticamente quando você possui a ferramenta nvm instalada em seu computador. Para realizar a configuração, basta executar:
+
+```
+$ nvm use
+```
+
+Estando no mesmo diretório desse arquivo.
+
+O projeto utiliza o ESLint e Prettier que são executados automaticamente toda vez que acontece um commit no projeto. O mesmo acontece com os testes.
+
+O git-commit-msg-linter é utilizado para padronizar os commits do projeto.
+
+## Instalar o projeto
+
+```
+# A partir da raiz use o comando:
+
+$ npm ci
+```
+
 ## Rodar o projeto
 
 ```
