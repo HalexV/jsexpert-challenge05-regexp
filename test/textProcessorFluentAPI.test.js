@@ -1,4 +1,3 @@
-// TODO: Dê uma olhada no projeto oficial do módulo 06 (Expressões Regulares - RegExp) para implementar este arquivo.
 import { describe, it } from 'mocha';
 import { expect } from 'chai';
 
@@ -15,7 +14,7 @@ import {
 /*
   Passos:
   1) [x] ler o arquivo CSV
-  2) [] O csv é passado para o textProcessorFluentAPI
+  2) [x] O csv é passado para o textProcessorFluentAPI
   3) [x] Separar os headers do content
   4) [x] Separar os contents por linhas de projeto
   5) [x] Transformar cada linha em um raw object
