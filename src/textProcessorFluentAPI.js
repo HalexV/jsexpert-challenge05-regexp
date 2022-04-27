@@ -32,68 +32,83 @@ export default class TextProcessorFluentAPI {
   }
 
   makeRawObjects() {
-    this.#content = this.#content.map(projectString => {
-      let index;
-      const indexadoresRegex =
-        /^[\s]*[A-ZÁÀÃÉÈÍÌÓÒÕÚÙÇ]+[A-ZÁÀÃÉÈÍÌÓÒÕÚÙÇ,\s]*$/;
+    const rawObjectsArr = [];
 
-      evaluateRegex(indexadoresRegex);
+    let index;
+    let projectString;
+    let projectArr;
+    let difference;
+    let titulo;
+    let link;
+    let autor;
+    let etapa;
+    let ementa;
+    let indexadoresnorma;
 
-      const projectArr = projectString.split(';');
+    const projectRegex = evaluateRegex(/^projeto/i);
+    const indexadoresRegex = evaluateRegex(
+      /^[\s]*[A-ZÁÀÃÉÈÍÌÓÒÕÚÙÇ]+[A-ZÁÀÃÉÈÍÌÓÒÕÚÙÇ,\s]*$/,
+    );
 
-      if (projectArr.length > 6) {
-        const difference = projectArr.length - 6;
-        for (let i = 0; i < difference; i += 1) {
-          projectArr.pop();
+    for (let i = 0; i < this.#content.length; i += 1) {
+      projectString = this.#content[i];
+
+      if (projectRegex.test(projectString)) {
+        projectArr = projectString.split(';');
+
+        if (projectArr.length > 6) {
+          difference = projectArr.length - 6;
+          for (let j = 0; j < difference; j += 1) {
+            projectArr.pop();
+          }
         }
-      }
 
-      const titulo = projectArr[0];
-      const link = projectArr[1];
+        titulo = projectArr[0];
+        link = projectArr[1];
 
-      let autor;
-      if (availablePautas.includes(projectArr[2])) {
-        autor = 'no data';
-        index = 2;
-      } else {
-        autor = projectArr[2];
-        index = 3;
-      }
+        if (availablePautas.includes(projectArr[2])) {
+          autor = 'no data';
+          index = 2;
+        } else {
+          autor = projectArr[2];
+          index = 3;
+        }
 
-      let etapa;
-      if (availablePautas.includes(projectArr[index])) {
-        etapa = projectArr[index];
-        index += 1;
-      } else {
-        etapa = 'no data';
-      }
+        if (availablePautas.includes(projectArr[index])) {
+          etapa = projectArr[index];
+          index += 1;
+        } else {
+          etapa = 'no data';
+        }
 
-      let ementa;
-      if (indexadoresRegex.test(projectArr[index])) {
-        ementa = 'no data';
-      } else {
-        ementa = projectArr[index];
-        index += 1;
-      }
-
-      let indexadoresnorma = 'no data';
-      while (index < 6) {
         if (indexadoresRegex.test(projectArr[index])) {
-          indexadoresnorma = projectArr[index];
-          index = 6;
+          ementa = 'no data';
+        } else {
+          ementa = projectArr[index];
+          index += 1;
         }
-        index += 1;
-      }
 
-      return {
-        titulo,
-        link,
-        autor,
-        etapa,
-        ementa,
-        indexadoresnorma,
-      };
-    });
+        indexadoresnorma = 'no data';
+        while (index < 6) {
+          if (indexadoresRegex.test(projectArr[index])) {
+            indexadoresnorma = projectArr[index];
+            index = 6;
+          }
+          index += 1;
+        }
+
+        rawObjectsArr.push({
+          titulo,
+          link,
+          autor,
+          etapa,
+          ementa,
+          indexadoresnorma,
+        });
+      }
+    }
+
+    this.#content = rawObjectsArr;
 
     return this;
   }
