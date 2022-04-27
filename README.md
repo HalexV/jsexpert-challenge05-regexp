@@ -117,11 +117,11 @@ Criar uma classe que receba no construtor os campos `título`, `link`, `autor`, 
 
 ## Requisitos do desafio
 
-- [ ] Uso de TDD do início ao fim do projeto
-- [ ] Testes Unitários e **100% de Code Coverage**
-- [ ] Uso de Expressões Regulares
-- [ ] Validação de segurança de Expressões Regulares
-- [ ] Uso do padrão `Fluent API` e também o padrão `Facade`
+- [x] Uso de TDD do início ao fim do projeto
+- [x] Testes Unitários e **100% de Code Coverage**
+- [x] Uso de Expressões Regulares
+- [x] Validação de segurança de Expressões Regulares
+- [x] Uso do padrão `Fluent API` e também o padrão `Facade`
 
 > Dica do Wells: parece difícil, mas é só se basear no **Projeto base feito em aula durante o módulo 06** que fica tranquilo, confia! :)
 
@@ -188,3 +188,25 @@ project
 Se você está pegando esse desafio na estréia, corre lá e envia pra gente até _Quinta-feira, 28 de abril de 2022 (28/04/2022)_!
 
 > Dica extra do Wells: Data de entrega curiosamente no dia do aniversário de 22 anos desse que vos fala, então se terminar o desafio no último dia, só vai ser aceito se mandar um parabéns no chat, hein? 😄 Bons estudos e ótimo desafio!
+
+<br>
+
+# Projeto
+
+Versão do Node: 14.17.6
+
+Utiliza ESM
+
+## Rodar o projeto
+
+```
+# Antes de rodar o projeto execute os testes a partir da raiz do projeto com o comando:
+
+$ npm test
+
+# Para executar o projeto utilize o comando:
+
+$ npm start
+
+# Ao finalizar a execução um arquivo JSON será criado no diretório docs/projeto-de-lei.json
+```
